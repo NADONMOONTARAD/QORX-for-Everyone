@@ -1,0 +1,36 @@
+{
+  "name": "stock-analysis-app",
+  "version": "1.0.0",
+  "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "scripts": {
+    "download": "npm run install:backend && npm run install:frontend",
+    "install:backend": "pip install -r requirements.txt",
+    "install:frontend": "cd frontend && npm install",
+    "api": "nodemon --watch backend\\api.py --watch backend\\__init__.py --watch backend\\src --watch .env --ext py,env --exec \"call .venv\\\\Scripts\\\\activate.bat && uvicorn backend.api:app\" --delay 1",
+    "front": "cd frontend && npm run dev",
+    "front:turbo": "cd frontend && npm run dev:turbo",
+    "back": "call .venv\\Scripts\\activate.bat && python -m backend.unified_runner",
+    "dev": "concurrently \"npm run api\" \"npm run front\"",
+    "dev:turbo": "concurrently \"npm run api\" \"npm run front:turbo\"",
+    "test": "npm run test:precommit",
+    "test:backend": ".\\.venv\\Scripts\\python.exe -m pytest backend/tests --junitxml backend/data/test-reports/backend-junit.xml",
+    "test:frontend": "npm --prefix frontend run build",
+    "test:precommit": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\run-precommit-checks.ps1 -All",
+    "test:e2e": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\run-e2e-checks.ps1",
+    "test:e2e:raw": "npm --prefix frontend run test:e2e",
+    "test:e2e:install": "npm --prefix frontend run test:e2e:install",
+    "test:all": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\run-all-tests.ps1",
+    "test:clean": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\clean-test-reports.ps1",
+    "hooks:install": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\install-git-hooks.ps1",
+    "export:public": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\export-public-release.ps1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.18.0",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "pg": "^8.20.0"
+  }
+}

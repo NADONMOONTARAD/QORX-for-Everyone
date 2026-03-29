@@ -1,0 +1,196 @@
+.searchBox {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border-radius: 20px;
+  background: var(--search-box-bg, color-mix(in srgb, var(--card-bg, white) 80%, transparent));
+  color: var(--search-text-color, inherit);
+  width: var(--search-box-collapsed-width, 48px);
+  height: var(--search-box-height, 48px);
+  box-shadow: var(--search-box-shadow, 0 14px 30px rgba(9, 30, 66, 0.1));
+  border: 1px solid var(--search-box-border, var(--border-color, rgba(9, 30, 66, 0.08)));
+  position: relative;
+  transition:
+    width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease,
+    background-color 0.24s ease;
+  overflow: visible;
+  cursor: pointer;
+  backdrop-filter: var(--search-box-backdrop, blur(18px) saturate(135%));
+  -webkit-backdrop-filter: var(--search-box-backdrop, blur(18px) saturate(135%));
+}
+
+.searchBoxExpanded {
+  width: var(--search-box-expanded-width, min(100%, 340px));
+  padding: 0 18px 0 8px;
+  cursor: text;
+}
+
+.searchBoxAlwaysExpanded {
+  width: var(--search-box-expanded-width, 100%);
+  padding: 0 18px 0 8px;
+  cursor: text;
+}
+
+.searchBoxStock {
+  box-shadow: 0 8px 24px var(--card-shadow, rgba(15, 77, 188, 0.12));
+  border: 1px solid var(--card-border, rgba(15, 77, 188, 0.25));
+  background: var(--card-bg, rgba(255, 255, 255, 0.8));
+}
+
+.searchBox:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--link-color, #0f4dbc) 34%, transparent);
+  box-shadow: var(--search-box-shadow-hover, 0 18px 36px rgba(9, 30, 66, 0.14));
+}
+
+.searchBox:focus-within {
+  border-color: color-mix(in srgb, var(--link-color, #0f4dbc) 36%, transparent);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--link-color, #0f4dbc) 12%, transparent),
+    var(--search-box-shadow-focus, 0 18px 36px rgba(9, 30, 66, 0.16));
+  transform: translateY(-1px);
+}
+
+.searchIconWrapper {
+  flex-shrink: 0;
+  width: var(--search-box-height, 48px);
+  height: var(--search-box-height, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  filter: var(--icon-filter, none);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+  opacity: 0;
+  width: 0;
+  transition: opacity 0.2s ease, width 0.3s ease;
+  pointer-events: none;
+}
+
+.searchBoxExpanded .searchInput,
+.searchBoxAlwaysExpanded .searchInput {
+  opacity: 1;
+  width: 100%;
+  pointer-events: auto;
+  margin-left: 4px;
+}
+
+.searchInput::placeholder {
+  color: var(--search-placeholder-color, var(--text-muted, #8092ad));
+}
+
+.searchDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 10px;
+  background: var(--search-dropdown-bg, color-mix(in srgb, var(--panel-bg, white) 86%, transparent));
+  border-radius: 20px;
+  box-shadow: var(--search-dropdown-shadow, 0 18px 38px rgba(9, 30, 66, 0.18));
+  border: 1px solid var(--search-dropdown-border, var(--border-color, rgba(9, 30, 66, 0.08)));
+  max-height: 290px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  z-index: 1000;
+  backdrop-filter: var(--search-dropdown-backdrop, blur(18px) saturate(145%));
+  -webkit-backdrop-filter: var(--search-dropdown-backdrop, blur(18px) saturate(145%));
+  width: 100%;
+  transform: translateZ(0);
+}
+
+.recentSearchesHeader {
+  padding: 0 20px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--search-heading-color, var(--text-muted, #8092ad));
+}
+
+.recentIcon {
+  margin-right: 8px;
+  font-size: 12px;
+  opacity: 0.6;
+  filter: var(--icon-filter, none);
+}
+
+.searchDropdownItem {
+  padding: 11px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--search-item-color, var(--text-primary, #1a2a3a));
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  display: flex !important;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.searchDropdownItem:hover {
+  background: var(--search-item-hover-bg, color-mix(in srgb, var(--link-color, #0f4dbc) 88%, black 4%));
+  color: var(--search-item-hover-color, white);
+}
+
+.suggestionTicker {
+  font-weight: 800;
+  color: var(--search-ticker-color, var(--link-color, #0f4dbc));
+  min-width: 54px;
+  flex-shrink: 0;
+}
+
+.searchDropdownItem:hover .suggestionTicker {
+  color: var(--search-ticker-hover-color, white);
+}
+
+.suggestionDivider {
+  margin: 0 8px;
+  opacity: 0.4;
+  font-weight: 300;
+  flex-shrink: 0;
+}
+
+.suggestionName {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 400;
+  opacity: 0.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .searchBoxExpanded,
+  .searchBoxAlwaysExpanded {
+    width: min(100%, 100vw - 40px);
+  }
+
+  .searchDropdown {
+    max-height: 220px;
+  }
+}

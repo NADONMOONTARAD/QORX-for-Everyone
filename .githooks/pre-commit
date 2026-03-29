@@ -1,0 +1,13 @@
+#!/bin/sh
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$REPO_ROOT/scripts/run-precommit-checks.ps1"
+RESULT=$?
+
+if [ "$RESULT" -ne 0 ]; then
+  echo ""
+  echo "pre-commit checks failed."
+fi
+
+exit "$RESULT"

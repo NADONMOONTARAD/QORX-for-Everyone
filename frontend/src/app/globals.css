@@ -1,0 +1,60 @@
+@import "../../node_modules/tailwindcss/index.css" source("..");
+
+:root {
+  --background: #f8fbfd;
+  --foreground: #06111d;
+  --card-bg: #ffffff;
+  --card-border: rgba(15, 77, 188, 0.12);
+  --card-shadow: 0 12px 28px rgba(15, 30, 80, 0.08);
+  --link-color: #0f4dbc;
+  --icon-filter: none;
+  --icon-exit-invert: 0;
+  --panel-bg: rgba(248, 251, 255, 0.85);
+  --panel-border: rgba(15, 77, 188, 0.08);
+  --text-primary: #0e1f39;
+  --text-secondary: #405066;
+  --text-muted: #5b6c82;
+  --border-color: rgba(9, 30, 66, 0.06);
+  --chart-blue: #1453d1;
+  --chart-orange: #ea580c;
+  --chart-orange-faded: #fdba74;
+  --chart-growth: #10b981;
+  --bar-inside-text: #ffffff;
+}
+
+.dark,
+[data-theme="dark"] {
+  --background: #0B1120;
+  --foreground: #f1f5f9;
+  --card-bg: #1e293b;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  --link-color: #60a5fa;
+  --icon-filter: invert(1) brightness(1.8) drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+  --icon-exit-invert: 1;
+  --panel-bg: rgba(30, 41, 59, 0.75);
+  --panel-border: rgba(255, 255, 255, 0.15);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --chart-blue: #3b82f6;
+  --chart-orange: #f97316;
+  --chart-orange-faded: #fb923c;
+  --chart-growth: #34d399;
+  --bar-inside-text: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-noto-sans-thai);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

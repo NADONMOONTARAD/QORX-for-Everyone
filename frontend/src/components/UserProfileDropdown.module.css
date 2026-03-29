@@ -1,0 +1,305 @@
+.container {
+  position: relative;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.avatarButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.avatarButton:hover {
+  transform: scale(1.05);
+}
+
+.avatarButton[data-open="true"] {
+  box-shadow: 0 0 0 2px var(--link-color, #0f4dbc);
+}
+
+.avatarImage {
+  border-radius: 50%;
+  background: #f1f5f9; /* Generic avatar bg */
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+  animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: top right;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Profile Header Section (Centered) */
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.profileAvatarLarge {
+  border-radius: 50%;
+  margin-bottom: 12px;
+  background: #f1f5f9;
+}
+
+/* Inline Name Edit */
+.nameContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.displayName {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  border-bottom: 1px dashed transparent;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  text-align: center;
+}
+
+.displayName:hover {
+  border-bottom-color: var(--text-muted, #94a3b8);
+}
+
+.displayBadge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary, #64748b);
+  background: rgba(100, 116, 139, 0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.nameInputWrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.nameInput {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  background: var(--background, #f8fafc);
+  border: 1px solid var(--link-color, #0f4dbc);
+  border-radius: 6px;
+  padding: 4px 8px;
+  width: 160px;
+  text-align: center;
+  outline: none;
+}
+
+.nameInputBtn {
+  background: var(--link-color, #0f4dbc);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Email Display */
+.emailRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.emailText {
+  font-size: 13px;
+  color: var(--text-secondary, #64748b);
+}
+
+/* Menu List Items */
+.menuList {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 10px;
+  gap: 4px;
+}
+
+.menuItem, .menuItemManage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, #1e293b);
+  transition: background-color 0.2s;
+  text-align: left;
+}
+
+.menuItemNonClickable {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary, #1e293b);
+}
+
+.menuItem:hover, .menuItemManage:hover {
+  background: var(--background, #f1f5f9);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  filter: var(--icon-filter, none);
+}
+
+.brandIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.iconWrapperCaret {
+  margin-left: auto;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-muted, #94a3b8);
+}
+
+.iconWrapperCaret.open {
+  transform: rotate(180deg);
+}
+
+.separator {
+  height: 1px;
+  background: var(--border-color, #e2e8f0);
+  margin: 4px 12px;
+}
+
+/* Expandable Danger Zone */
+.dangerZoneContainer {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+  background: rgba(239, 68, 68, 0.05); /* very light red */
+  border-top: 1px solid rgba(239, 68, 68, 0.1);
+  margin-top: 4px;
+}
+
+.dangerZoneContainer.open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.dangerZoneContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dangerText {
+  font-size: 13px;
+  color: #ef4444;
+  line-height: 1.5;
+}
+
+.dangerLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary, #334155);
+}
+
+.deleteInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: 6px;
+  font-size: 13px;
+  background: var(--card-bg, #ffffff);
+  color: var(--text-primary, #0f172a);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.deleteInput:focus {
+  border-color: #ef4444;
+}
+
+.deleteButton {
+  width: 100%;
+  padding: 10px;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.deleteButton.enabled {
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.deleteButton.enabled:hover {
+  background: #dc2626;
+  transform: scale(1.02);
+}

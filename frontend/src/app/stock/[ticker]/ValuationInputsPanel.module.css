@@ -1,0 +1,395 @@
+﻿.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.cardSurface {
+  background: var(--card-bg, #ffffff);
+  border-radius: 20px;
+  border: 1px solid var(--card-border, rgba(17, 40, 84, 0.08));
+  box-shadow: var(--card-shadow, 0 14px 32px rgba(9, 31, 74, 0.12));
+}
+
+.discountHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.discountInfo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.discountInfoButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(19, 78, 204, 0.16);
+  color: #134ecc;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  font-size: 14px;
+}
+
+.discountInfoButton:hover,
+.discountInfoButton:focus {
+  background: rgba(19, 78, 204, 0.24);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.discountInfoButton:focus-visible {
+  outline: 2px solid #134ecc;
+  outline-offset: 2px;
+}
+
+.discountInfoPopover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(320px, 70vw);
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #10213f;
+  color: #f4f7ff;
+  font-size: 13px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 22px rgba(12, 30, 68, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 10;
+  white-space: normal;
+}
+
+.discountInfo:hover .discountInfoPopover,
+.discountInfo:focus-within .discountInfoPopover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.discountInfoList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.discountInfoList p {
+  margin: 0;
+}
+
+.discountBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rateRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.rateValue {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--link-color, #134ecc);
+  line-height: 1;
+}
+
+.baseTag {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(19, 78, 204, 0.1);
+  color: var(--text-primary, #1b366a);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.adjustments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.adjustmentItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--panel-bg, rgba(19, 78, 204, 0.08));
+  border: 1px solid var(--panel-border, rgba(19, 78, 204, 0.12));
+}
+
+.adjustmentSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  /* Hide default triangle */
+}
+
+.adjustmentSummary::-webkit-details-marker {
+  display: none;
+}
+
+.adjustmentSummary:focus-visible {
+  outline: 2px solid #134ecc;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.adjustmentReason {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-secondary, #4b5b74);
+  line-height: 1.5;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-color, rgba(19, 78, 204, 0.15));
+}
+
+.adjustmentLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, #1c3058);
+}
+
+.adjustmentDelta {
+  font-size: 14px;
+  font-weight: 700;
+  color: #c23d38;
+  background: rgba(194, 61, 56, 0.12);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+
+.growthCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.methodTag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(67, 111, 220, 0.12);
+  color: #2450a8;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.growthBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rangeRow {
+  font-size: 16px;
+  font-weight: 600;
+  color: #182c4c;
+}
+
+.chartWrapper {
+  height: 240px;
+  width: 100%;
+}
+
+.chartEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  border-radius: 14px;
+  border: 1px dashed rgba(18, 44, 90, 0.18);
+  font-size: 13px;
+  color: #5a6d8a;
+}
+
+.growthFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-secondary, #4b5b74);
+}
+
+.growthFooter strong {
+  color: #134ecc;
+}
+
+.growthFooterLeft {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.growthWindowText {
+  color: #4b5b74;
+}
+
+.growthSourceBadge {
+  font-weight: 700;
+  color: #134ecc;
+  text-transform: uppercase;
+}
+
+.ownerCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.ownerBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--text-secondary);
+}
+
+.ownerList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ownerItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(19, 78, 204, 0.04);
+  border: 1px solid rgba(19, 78, 204, 0.06);
+  transition: background 0.25s ease, border 0.25s ease;
+}
+
+.ownerItem:hover {
+  background: rgba(19, 78, 204, 0.1);
+  border-color: rgba(19, 78, 204, 0.18);
+}
+
+.ownerItemTotal {
+  background: rgba(19, 78, 204, 0.12);
+  border-color: rgba(19, 78, 204, 0.2);
+}
+
+.ownerLabelGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ownerLottie {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ownerLottieSmall {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ownerBullet {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.ownerBullet_positive {
+  color: #0f6a39;
+  background: rgba(15, 106, 57, 0.18);
+}
+
+.ownerBullet_negative {
+  color: #b53131;
+  background: rgba(181, 49, 49, 0.18);
+}
+
+.ownerBullet_neutral {
+  color: #1b3d8b;
+  background: rgba(27, 61, 139, 0.18);
+}
+
+.ownerBulletTotal {
+  background: #1453d1;
+  color: #ffffff;
+}
+
+.ownerLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, #1c3052);
+}
+
+.ownerItemTotal .ownerLabel {
+  font-weight: 700;
+  color: #0f1f3d;
+}
+
+.ownerValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary, #0f1f3d);
+  min-width: 90px;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rateValue {
+    font-size: 38px;
+  }
+}

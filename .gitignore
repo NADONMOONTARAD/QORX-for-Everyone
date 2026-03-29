@@ -1,0 +1,52 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# Python
+## Virtual Environments
+.venv/
+venv/
+env/
+
+## Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+## Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Test & coverage reports
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+backend/data/test-reports/*
+!backend/data/test-reports/.gitkeep
+
+# Frontend (Node.js / Next.js)
+node_modules/
+.next/
+frontend/.next-e2e/
+frontend/.e2e-mock-mode
+out/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Runtime caches (do not commit)
+.cache/
+.gemini/
+backend/.cache/
+backend/.cache/**
+backend/.cache/stockanalysis/pw_state_*.json

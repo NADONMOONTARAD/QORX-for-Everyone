@@ -1,0 +1,80 @@
+/* ── Skeleton shimmer animation ── */
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeleton {
+    background: #e8ecf1;
+    background-image: linear-gradient(90deg, #e8ecf1 25%, #ffffff 50%, #e8ecf1 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 8px;
+}
+
+/* ── Utility shapes ── */
+.skeletonText {
+    background: #e8ecf1;
+    background-image: linear-gradient(90deg, #e8ecf1 25%, #ffffff 50%, #e8ecf1 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    height: 14px;
+    border-radius: 6px;
+}
+
+.skeletonTextLg {
+    background: #e8ecf1;
+    background-image: linear-gradient(90deg, #e8ecf1 25%, #ffffff 50%, #e8ecf1 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    height: 22px;
+    border-radius: 6px;
+}
+
+.skeletonTextXl {
+    background: #e8ecf1;
+    background-image: linear-gradient(90deg, #e8ecf1 25%, #ffffff 50%, #e8ecf1 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    height: 32px;
+    border-radius: 8px;
+}
+
+.skeletonCircle {
+    background: #e8ecf1;
+    background-image: linear-gradient(90deg, #e8ecf1 25%, #ffffff 50%, #e8ecf1 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 50%;
+}
+
+.skeletonCard {
+    border-radius: 20px;
+    background-color: #edf0f5;
+    background-image: linear-gradient(90deg, #edf0f5 25%, #ffffff 50%, #edf0f5 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.skeletonTableRow {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(9, 30, 66, 0.04);
+}
+
+.skeletonTableCell {
+    background: #e8ecf1;
+    background-image: linear-gradient(90deg, #e8ecf1 25%, #ffffff 50%, #e8ecf1 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    height: 14px;
+    flex: 1;
+    border-radius: 6px;
+}

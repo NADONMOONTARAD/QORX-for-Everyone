@@ -1,0 +1,16 @@
+python-dotenv
+sqlalchemy
+psycopg2-binary
+pandas
+numpy
+tiktoken
+google-generativeai
+finnhub-python
+beautifulsoup4
+requests
+fastapi[all]
+yfinance
+playwright
+rapidfuzz
+lxml
+pytest
