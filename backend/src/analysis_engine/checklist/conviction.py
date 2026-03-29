@@ -1,4 +1,9 @@
-# backend/src/analysis_engine/checklist/conviction.py
+"""Public-edition conviction scoring.
+
+This GitHub repo uses standard educational heuristics and transparent scoring
+blocks instead of the fuller private thesis tuning. The full thesis logic can
+be reviewed separately on request.
+"""
 
 from dataclasses import dataclass
 from typing import Any, Dict, Optional, Tuple

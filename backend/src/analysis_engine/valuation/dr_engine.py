@@ -1,3 +1,10 @@
+"""Public-edition discount-rate and aggregation helpers.
+
+This repo intentionally keeps valuation aggregation plain and reviewable by
+using standard educational heuristics in public. Fuller thesis-specific tuning
+is maintained separately and can be reviewed on request.
+"""
+
 import pandas as pd
 from typing import List, Dict, Any
 

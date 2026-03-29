@@ -1,8 +1,11 @@
+import pandas as pd
+
 from backend.src.jobs.financial_processing import (
     extract_fund_metrics,
     process_finnhub_financials,
     process_yfinance_financials,
 )
+from backend.src.api_clients.yfinance_client import YFinanceClient
 
 
 def test_process_finnhub_financials_maps_core_fields_and_normalizes_buybacks():
@@ -155,3 +158,34 @@ def test_extract_fund_metrics_stamps_latest_annual_record_only():
     assert latest_annual["three_year_return"] == 0.08
     assert latest_annual["five_year_return"] == 0.1
     assert "expense_ratio" not in older_annual
+
+
+def test_yfinance_dataframe_to_records_handles_timestamp_columns_without_melt():
+    client = YFinanceClient()
+    df = pd.DataFrame(
+        {
+            pd.Timestamp("2025-12-31"): {
+                "Total Revenue": 1000,
+                "Net Income": 250,
+            },
+            pd.Timestamp("2024-12-31"): {
+                "Total Revenue": 900,
+                "Net Income": 200,
+            },
+        }
+    )
+
+    records = client._dataframe_to_records(df)
+
+    assert records == [
+        {
+            "date": "2025-12-31",
+            "Total Revenue": 1000,
+            "Net Income": 250,
+        },
+        {
+            "date": "2024-12-31",
+            "Total Revenue": 900,
+            "Net Income": 200,
+        },
+    ]

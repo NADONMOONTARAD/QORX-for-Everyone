@@ -5,9 +5,10 @@
 ## Public Edition Notice
 
 - Repo บน GitHub นี้เป็นฉบับเผยแพร่สำหรับการเรียนและการรีวิวโค้ด
+- Repo นี้ตั้งใจใช้ standard educational heuristics และ baseline logic ที่อธิบายตรวจสอบได้ง่าย แทน private tuning บางส่วนจากเวอร์ชันทำโครงงานจริง
 - Logic valuation บางส่วนถูกลดให้เป็น baseline ที่อ่านง่ายขึ้น โดยใช้ sector defaults และ exception เท่าที่จำเป็นต่อการทำงาน
 - ดังนั้นผลลัพธ์จาก repo public อาจไม่ตรงกับ private working version หรือฉบับที่ใช้ทำโครงงาน 1:1
-- ถ้าครูหรือกรรมการต้องตรวจโค้ดจริงเต็มชุด ควรดูจาก private thesis version แยกต่างหาก
+- Full thesis logic และ private working version สามารถขอดูแยกต่างหากได้สำหรับการตรวจโดยอาจารย์ กรรมการ หรือการ walkthrough เชิงเทคนิค
 
 ## ไฮไลต์ฟีเจอร์
 - ✅ **Pipeline วิเคราะห์อัตโนมัติ**: ดึงข้อมูล 10-K, ข้อมูลงบการเงิน และสรุปผลด้วย AI (Gemini) ภายใต้กฎตรวจสอบคุณภาพข้อมูล

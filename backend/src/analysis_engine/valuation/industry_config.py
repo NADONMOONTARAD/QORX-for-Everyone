@@ -8,7 +8,9 @@ the published repo only exposes:
 2. A small set of structural industry exceptions that change model type
 
 That keeps the teaching version understandable without exposing every custom
-override from the original working model.
+override from the original working model. The public repo therefore uses
+standard educational heuristics, while the fuller thesis logic is available
+separately on request.
 """
 
 from typing import Any, Dict

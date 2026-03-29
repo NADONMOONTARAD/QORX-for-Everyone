@@ -68,13 +68,22 @@ class YFinanceClient:
 
     def _dataframe_to_records(self, df: pd.DataFrame):
         """Helper to convert a yfinance DataFrame into list-of-dicts."""
-        if df is None or df.empty:
+        if df is None:
             return []
-        df_melted = df.reset_index().melt(id_vars="index", var_name="date")
-        df_pivoted = df_melted.pivot(index="date", columns="index", values="value")
-        df_pivoted.reset_index(inplace=True)
-        df_pivoted["date"] = pd.to_datetime(df_pivoted["date"]).dt.strftime("%Y-%m-%d")
-        return df_pivoted.to_dict(orient="records")
+        if isinstance(df, pd.Series):
+            df = df.to_frame()
+        if not isinstance(df, pd.DataFrame) or df.empty:
+            return []
+
+        # yfinance already returns statements as concepts x dates, so transposing
+        # is both simpler and more robust than melting mixed-type columns.
+        records_df = df.transpose().reset_index().rename(columns={"index": "date"})
+        records_df["date"] = pd.to_datetime(records_df["date"], errors="coerce")
+        records_df = records_df[records_df["date"].notna()].copy()
+        if records_df.empty:
+            return []
+        records_df["date"] = records_df["date"].dt.strftime("%Y-%m-%d")
+        return records_df.to_dict(orient="records")
 
     def get_company_info(self, ticker: str) -> dict:
         """Fetch the company information dictionary (.info) from yfinance."""

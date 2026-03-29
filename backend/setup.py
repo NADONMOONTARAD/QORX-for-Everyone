@@ -11,6 +11,7 @@ setup(
         "psycopg2-binary",
         "pandas",
         "numpy",
+        "scipy",
         "tiktoken",
         "google-generativeai",
         "finnhub-python",

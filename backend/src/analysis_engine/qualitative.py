@@ -1,3 +1,10 @@
+"""Public-edition qualitative analysis.
+
+This repo intentionally uses standard educational heuristics and broad prompts
+that are easy to audit in public. The fuller thesis logic is maintained
+separately and can be reviewed on request.
+"""
+
 # backend/src/analysis_engine/qualitative.py
 # Removed gzip caching: always fetch and clean the SEC filing text
 import os, json, re, time, requests, psycopg2, random, tiktoken, email.utils, copy
