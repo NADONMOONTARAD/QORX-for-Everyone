@@ -160,16 +160,6 @@ E2E_BASE_URL=https://your-deployed-site.example.com npm run test:e2e
 
 ---
 
-## การเตรียม repo สำหรับเผยแพร่
-
-- แชร์เฉพาะ source code, `README.md`, `LICENSE`, `.env.example` และ `frontend/.env.local.example`
-- อย่า commit ไฟล์ `.env`, `frontend/.env.local`, `.cache/`, `.gemini/` และไฟล์ใน `backend/data/test-reports/`
-- ถ้าจะเปิดให้มหาวิทยาลัยหรือนักศึกษารันเอง ให้ใช้ฐานข้อมูลตัวอย่างหรือข้อมูลที่ scrub แล้ว ไม่ควรใช้ production database ตรงๆ
-- ถ้าจะแชร์วิธีรัน e2e บนเว็บ deploy ให้แทนค่า `E2E_BASE_URL` ด้วยโดเมนของ deployment สำหรับงานสอนหรือสาธิต ไม่ควรชี้ production จริงโดยตรงในเอกสาร
-- ถ้าจะเปิด admin ให้นักศึกษาดู flow การทำงาน ให้ใช้ API key, Supabase project, และ admin email สำหรับห้องเรียนหรือ sandbox แยกจากระบบจริง
-- ถ้าต้องการแพ็กชุดแจกโดยไม่พกประวัติ git ไปด้วย ให้ใช้ `npm run export:public` เพื่อสร้างสำเนาใหม่ที่ตัด `.git`, `.env`, `frontend/.env.local`, cache และ artifacts ออก
-- ถ้าจะอัปโหลดขึ้น GitHub แบบไม่มี history เดิม ให้ใช้โฟลเดอร์ที่ export ออกไปแล้วค่อย `git init` ใหม่ แทนการลบ `.git` จาก working repo หลัก
-
 ## License
 
 โปรเจกต์นี้เผยแพร่ภายใต้ PolyForm Noncommercial 1.0.0
